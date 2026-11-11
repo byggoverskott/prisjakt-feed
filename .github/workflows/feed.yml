@@ -2,7 +2,7 @@ name: Prisjakt-flöde
 
 on:
   schedule:
-    - cron: "23 4,10,16,21 * * *"   # fyra gånger per dygn (UTC)
+    - cron: "23 4 * * *"   # en gång per dygn, ca 05:23 svensk tid
   workflow_dispatch:                 # kan köras manuellt från fliken Actions
 
 concurrency:

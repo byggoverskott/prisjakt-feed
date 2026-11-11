@@ -9,7 +9,7 @@ https://byggoverskott.github.io/prisjakt-feed/prisjakt.xml
 https://byggoverskott.github.io/prisjakt-feed/status.json
 
 ## Så fungerar det
-GitHub Actions kör `feed.py` fyra gånger per dygn. Skriptet hämtar alla aktiva produkter från Shopify och publicerar XML-filen via GitHub Pages. Om flödet skulle bli tomt publiceras det inte, och den förra filen ligger kvar.
+GitHub Actions kör `feed.py` en gång per dygn (ca 05:23 svensk tid). Den kan också köras manuellt under fliken Actions. Skriptet hämtar alla aktiva produkter från Shopify och publicerar XML-filen via GitHub Pages. Om flödet skulle bli tomt publiceras det inte, och den förra filen ligger kvar.
 
 ## Regler
 - Med: aktiva produkter som är publicerade i webbutiken, i lager och har minst en bild.
