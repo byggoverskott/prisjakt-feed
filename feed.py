@@ -10,6 +10,7 @@ from xml.sax.saxutils import escape
 SHOP_URL = "https://www.byggoverskott.se"
 OUT = os.path.join("site", "prisjakt.xml")
 API_VERSION = "2026-10"
+MIN_PRICE = 250  # kr inkl. moms; billigare produkter tas inte med (klickkostnaden äter marginalen)
 
 # ---------- Shopify ----------
 E = os.environ
@@ -144,6 +145,9 @@ def build_items(products):
             price = float(v["price"])
             if price <= 0:
                 skipped["pris 0"] += 1
+                continue
+            if price < MIN_PRICE:
+                skipped[f"pris under {MIN_PRICE} kr"] += 1
                 continue
             cmp = float(v["compareAtPrice"]) if v.get("compareAtPrice") else 0
             gtin = next((g for g in (valid_gtin(b["value"]) for b in v["barcodes"]["nodes"]) if g), None)

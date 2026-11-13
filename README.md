@@ -14,6 +14,7 @@ GitHub Actions kör `feed.py` en gång per dygn (ca 05:23 svensk tid). Den kan o
 ## Regler
 - Med: aktiva produkter som är publicerade i webbutiken, i lager och har minst en bild.
 - Ej med: produkter taggade `endast-butik`, eftersom de bara kan hämtas i butiken.
+- Ej med: produkter som kostar under 250 kr (det faktiska priset, inkl. moms). Prisjakt tar betalt per klick, och billiga produkter ger för lite vinst för att bära klickkostnaden. Gränsen ändras i `MIN_PRICE` i `feed.py`.
 - EAN (`gtin`) hämtas från streckkoden i Shopify. Ogiltiga koder skickas inte med.
 - Pris: jämförpriset skickas som `price` och det faktiska priset som `sale_price`.
 - Taggen `återbruk` ger skick `used`, annars `new`.
