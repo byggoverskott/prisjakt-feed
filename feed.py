@@ -10,7 +10,7 @@ from xml.sax.saxutils import escape
 SHOP_URL = "https://www.byggoverskott.se"
 OUT = os.path.join("site", "prisjakt.xml")
 API_VERSION = "2026-10"
-MIN_PRICE = 250  # kr inkl. moms; billigare produkter tas inte med (klickkostnaden äter marginalen)
+MIN_PRICE = 199  # kr inkl. moms; billigare produkter tas inte med (klickkostnaden äter marginalen)
 
 # ---------- Shopify ----------
 E = os.environ
