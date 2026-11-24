@@ -17,7 +17,7 @@ GitHub Actions kör `feed.py` en gång per dygn (ca 05:23 svensk tid). Den kan o
 - Ej med: produkter som kostar under 199 kr (det faktiska priset, inkl. moms). Prisjakt tar betalt per klick, och billiga produkter ger för lite vinst för att bära klickkostnaden. Gränsen ändras i `MIN_PRICE` i `feed.py`.
 - EAN (`gtin`) hämtas från streckkoden i Shopify. Ogiltiga koder skickas inte med.
 - Pris: jämförpriset skickas som `price` och det faktiska priset som `sale_price`.
-- Taggen `återbruk` ger skick `used`, annars `new`.
+- Taggen `begagnat` (eller gamla `återbruk`) ger skick `used`, annars `new`.
 - Märke = leverantör i Shopify. Olika stavningar av samma märke (ESSVE/Essve) slås ihop.
 - Vikt skickas i kg.
 - ID: produkter med en variant behåller Shopifys produkt-ID (samma som LitCommerce använde), så att Prisjakts matchningar ligger kvar. Produkter med flera varianter får en rad per variant.

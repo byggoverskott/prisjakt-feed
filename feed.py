@@ -10,6 +10,7 @@ from xml.sax.saxutils import escape
 SHOP_URL = "https://www.byggoverskott.se"
 OUT = os.path.join("site", "prisjakt.xml")
 API_VERSION = "2026-10"
+USED_TAGS = {"begagnat", "återbruk"}  # taggar som ger skick "used" (återbruk = gamla taggen)
 MIN_PRICE = 199  # kr inkl. moms; billigare produkter tas inte med (klickkostnaden äter marginalen)
 
 # ---------- Shopify ----------
@@ -167,7 +168,7 @@ def build_items(products):
                 "price": money(cmp if cmp > price else price),
                 "sale_price": money(price) if cmp > price else None,
                 "availability": "in_stock",
-                "condition": "used" if "återbruk" in tags else "new",
+                "condition": "used" if tags & USED_TAGS else "new",
                 "brand": brand,
                 "gtin": gtin,
                 "product_type": p.get("productType") or "",
